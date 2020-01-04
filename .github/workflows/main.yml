@@ -13,13 +13,14 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: 'davidepastore/lecceprima-rss-db'
+        path: 'lecceprima-rss-db'
     - name: Hello world action step
       id: hello
       uses: davidepastore/lecceprima-action@master
       with:
         db-directory: './lecceprima-rss-db'
     - run: |
-        cd lecceprima-rss-db
+        cd "$GITHUB_WORKSPACE/lecceprima-rss-db"
         git add -A
         git commit -m "Updating RSS feeds"
         if [ -n "$(git status --porcelain)" ]; then
