@@ -21,13 +21,10 @@ jobs:
         db-directory: './lecceprima-rss-db'
     - run: |
         cd "$GITHUB_WORKSPACE/lecceprima-rss-db"
-        git add -A
-        git commit -m "Updating RSS feeds"
-        if [ -n "$(git status --porcelain)" ]; then
-          echo "There are changes";
-        else
-          echo "No changes";
-        fi
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Updating RSS feeds" -a
+        git push origin
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
