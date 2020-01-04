@@ -15,7 +15,7 @@ jobs:
         repository: 'davidepastore/lecceprima-rss-db'
     - name: Hello world action step
       id: hello
-      uses: davidepastore/lecceprima-action@v0.1.0
+      uses: davidepastore/lecceprima-action@master
       with:
         db-directory: './lecceprima-rss-db'
     - run: |
