@@ -19,6 +19,8 @@ jobs:
       uses: davidepastore/lecceprima-action@master
       with:
         db-directory: './lecceprima-rss-db'
+        telegram-token: ${{ secrets.TELEGRAM_TOKEN }}
+        telegram-chat-id: ${{ secrets.TELEGRAM_CHAT_ID }}
     - run: |
         cd "$GITHUB_WORKSPACE/lecceprima-rss-db"
         git config --local user.email "action@github.com"
